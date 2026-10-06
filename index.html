@@ -1148,6 +1148,9 @@ kbd {
 @media (hover: none) and (pointer: coarse) {
   html, body { overscroll-behavior: none; }
   .hint { display: none; }
+  /* на телефоне дрожание контуров при масштабе ~0.4 почти не видно, а WebKit пересчитывает SVG-фильтры
+     на процессоре при каждой перерисовке: с ними 6-30 кадров в секунду, без них 60 */
+  *, *::before, *::after { filter: none !important; }
   .dock {
     position: fixed;
     z-index: 10;
